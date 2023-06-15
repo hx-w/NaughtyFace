@@ -1,0 +1,15 @@
+easydict
+numpy
+tqdm
+torchvision
+torch
+opencv_python
+Pillow
+better-exceptions
+dlib  # need cmake supports
+future
+imgaug
+pandas
+pretrainedmodels
+tensorboard
+yacs
