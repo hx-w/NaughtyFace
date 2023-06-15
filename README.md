@@ -28,6 +28,6 @@ python video_offline_detect.py -i <video_path> -s <sample_rate>
 
 **params**
 
-- '--inputs / -i': local video path, only mp4 supported (for now).
-- '--sample_rate / -s': video frames sample rate $\in [0.0, 1.0]$
+- `--inputs / -i`: local video path, only mp4 supported (for now).
+- `--sample_rate / -s`: video frames sample rate $\in [0.0, 1.0]$
 
