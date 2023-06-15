@@ -1,4 +1,4 @@
 videos/
 imgs/
 __pycache__/
-*.pth
+epoch044_0.02343_3.9984.pth
