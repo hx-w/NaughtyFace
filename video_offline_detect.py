@@ -8,6 +8,7 @@ import random
 
 from face_age_estimator import estimate_age
 
+
 def _img2video(imgs: list, video_path: str, fps: int, shape: tuple):
     out = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, shape)
  
@@ -18,6 +19,8 @@ def _img2video(imgs: list, video_path: str, fps: int, shape: tuple):
 
 def _run_video(video_capture: cv2.VideoCapture, video_path: str, sample_rate: float):
     video_capture.open(video_path)
+    video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     _fps = video_capture.get(cv2.CAP_PROP_FPS)
     _frame_count = video_capture.get(cv2.CAP_PROP_FRAME_COUNT)
     _shape = (int(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH)), int(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT)))
@@ -47,6 +50,9 @@ def detect_main(video_path: str, sample_rate: float):
     if not os.path.exists(video_path):
         raise ValueError("video path not exists: {}".format(video_path))
     
+    if not video_path.endswith('.mp4'):
+        raise ValueError("video path should be a mp4 file")
+
     if sample_rate <= 0.0 or sample_rate > 1.0:
         raise ValueError("sample rate should be in (0.0, 1.0]")
 
