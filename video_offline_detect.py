@@ -41,7 +41,7 @@ def _run_video(video_capture: cv2.VideoCapture, video_path: str, sample_rate: fl
     edited_imgs, ages, r_or_f = estimate_age(frames)
 
     avg_age = np.mean(ages, axis=0)
-    print("avg_age: {}".format(avg_age), 'Fake' if np.any(False in r_or_f) else 'Real')
+    print("avg_age: {}".format(avg_age))
 
     _img2video(edited_imgs, video_path.replace('.mp4', '_pred.mp4'), _fps, _shape)
 
